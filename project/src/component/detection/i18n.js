@@ -19,9 +19,9 @@ i18n
       fr: {
         translation: {
           // French translations
-          buy: 'ACHETE',
-          sell: 'VENDRE',
-          rent:'LOUER',
+          buy: 'BUY',
+          sell: 'SELL',
+          rent:'RENT',
           // Add more French translations as needed
         },
       },

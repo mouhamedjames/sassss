@@ -31,6 +31,7 @@ import Loader from "../component/loader/loader.js"
     const [isloading, setisloading] = useState(false);
     const [fromPrice, setFromPrice] = useState(0);
     const [toPrice, setToPrice] = useState(1000);
+    const [type, settype] = useState("");
     const [formData, setFormData] = useState({
       fullName: '',
       email: '',
@@ -57,14 +58,17 @@ import Loader from "../component/loader/loader.js"
       
     const handleRentClick = () => {
       setStage('propertyType');
+      settype("rent")
     };
   
     const handleSellClick = () => {
       setStage('propertyType');
+      settype("sell")
     };
   
     const handlebuyClick = () => {
       setStage('propertyType');
+      settype("buy")
     };
   
     const handlePropertyTypeClick = (type) => {
@@ -120,7 +124,7 @@ import Loader from "../component/loader/loader.js"
         e.preventDefault() // to block any event
         setisloading(true)
         try{
-          const data =await axios.post("http://localhost:8500/api/createlink", {proprety:propertyType ,rooms:bedroomType,fromprice:fromPrice,toprice:toPrice,contact:formData,address:selectedOptions })
+          const data =await axios.post("http://localhost:8500/api/createlink", {proprety:propertyType ,rooms:bedroomType,fromprice:fromPrice,toprice:toPrice,contact:formData,address:selectedOptions,category:type })
 Navigate("/Success")
 
           console.log("work")
